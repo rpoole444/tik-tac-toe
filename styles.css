@@ -18,7 +18,7 @@ body {
 .left-player-side,
 .right-player-side {
     height: 100vh;
-    width: 25vw;
+    width: 45vw;
     background-color: lightsalmon;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@ body {
 .right-outcome {
     font-family: fantasy;
     font-size: 30px;
+    padding: 0 2vw 0 2vw;
 }
 
 .game-wrapper {
@@ -69,7 +70,7 @@ body {
 .game-layout{
     background-color:lightseagreen;
     height: 60vh;
-    width: 43vw;
+    width: 41vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
