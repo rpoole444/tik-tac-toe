@@ -29,14 +29,14 @@ body {
 .left-title,
 .right-title {
     font-family: fantasy;
-    font-size: 60px;
-    padding: 2vh 0 2vh 0;
+    font-size: 6vh;
+    padding: 10vh 0 2vh 0;
 }
 
 .left-outcome,
 .right-outcome {
     font-family: fantasy;
-    font-size: 30px;
+    font-size: 3vh;
     padding: 0 2vw 0 2vw;
 }
 
@@ -52,8 +52,8 @@ body {
 
 .middle-header{
     font-family: fantasy;
-    font-size: 120px;
-    padding: 7vh 0 0 0
+    font-size: 10vh;
+    padding: 4vh 0 0 0
 }
 .game-container {
     padding: 0 0 25vh 0
