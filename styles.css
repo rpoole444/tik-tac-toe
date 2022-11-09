@@ -42,7 +42,7 @@ body {
 .game-wrapper {
     height: 100vh;
     width: 50vw;
-    border: 10px solid red;
+    background-color:lightseagreen;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,17 +61,18 @@ body {
 .game-container {
     height: 50vh;
     width: 50vw;
-    border: 10px solid black;
+    background-color: lightseagreen;
     display: flex;
     justify-content: center;
 }
 
 .game-layout{
-    border: 4px solid orange;
+    background-color:lightseagreen;
     height: 60vh;
-    width: 41vw;
+    width: 43vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     align-items: center;
     justify-items: center;
     justify-content: center;
@@ -79,16 +80,47 @@ body {
 }
 
 .square {
-    background-color: turquoise;
-    height: 17vh;
-    width: 13vw;
-    border: 4px solid red
+    background-color: lightseagreen;
+    height: 19vh;
+    width: 14vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid red;
 }
 
-/* .game-fields {
-    height: 23vh;
-    border: 7px solid brown;
-} */
+.sq1 {
+    border-top: 0;
+    border-left: 0;
+}
 
+.sq2{
+    border-top: 0;
+}
 
-/*  */
+.sq3 {
+    border-top: 0;
+    border-right: 0;
+}
+
+.sq4{
+    border-left: 0;
+}
+
+.sq6 {
+    border-right: 0;
+}
+
+.sq7 {
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.sq8 {
+    border-bottom: 0;
+}
+
+.sq9 {
+    border-right: 0;
+    border-bottom: 0;
+}
