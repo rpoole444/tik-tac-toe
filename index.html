@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
   <link rel="stylesheet" href="styles.css">
   <title>Tic Tac Toe!!</title>
@@ -10,30 +9,34 @@
     <body>
         <div class="wrapper">
         <section class="left-player-side">
-            <h3 class="left-title">Player 1</h3>
-            <p class="left-outcome">This is where you find the outcome!</p>
+            <h3 class="left-title">Player 1 🎺</h3>
+            <p class="left-outcome" id="p1Wins">0 Wins</p>
         </section>
         <main>
             <div class="game-wrapper">
-                <h2 class="middle-header">FIGHT!</h2>
+                <h2 class="middle-header" id="">It's 🎻 turn!</h2>
                 <section class="game-container">
-                    <div class="game-layout">
-                        <div class="square sq1">1</div>
-                        <div class="square sq2">2</div>
-                        <div class="square sq3">3</div>
-                        <div class="square sq4">4</div>
-                        <div class="square sq5">5</div>
-                        <div class="square sq6">6</div>
-                        <div class="square sq7">7</div>
-                        <div class="square sq8">8</div>
-                        <div class="square sq9">9</div>
+                    <div class="game-layout" id="game-grid">
+                        <button class="square sq1" id="one">1</button>
+                        <button class="square sq2" id="two">2</button>
+                        <button class="square sq3" id="three">3</button>
+                        <button class="square sq4" id="four">4</button>
+                        <button class="square sq5" id="five">5</button>
+                        <button class="square sq6" id="six">6</button>
+                        <button class="square sq7" id="seven">7</button>
+                        <button class="square sq8" id="eight">8</button>
+                        <button class="square sq9" id="nine">9</button>
                     </div>
                 </section>
             </div>
         </main>
         <section class="right-player-side">
-            <h3 class="right-title">Player 2</h3>
-            <p class="right-outcome">This is where you find the outcome!</p>
+            <h3 class="right-title">Player 2 🎻</h3>
+            <p class="right-outcome" id="p2Wins">0 Wins</p>
         </section>
         </div>
+        <script src="player.js"></script>
+        <script src="game.js"></script>
+        <script src="main.js"></script>
     </body>
+</html>
