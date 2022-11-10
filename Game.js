@@ -12,14 +12,26 @@ class Game {
             eight: "",
             nine: "",
         }
+        // this.playerOne = player1
+        // this.playerTwo = player2
         this.players = [player1, player2];
-        this.whosTurn = "player1";
-        this.firstPlayer = "player1"
-        this.turnCount = 0
-        this.gameOver = false;
+        this.whosTurn = 'player1' 
+        this.firstPlayer = 'player1'
+        this.turnCount = 0 //the game can only go to 8
+        this.gameIsOver = false;
         this.isDraw = false;
     }
-    
+
+    placeToken(id){
+        for(var i = 0; i < this.players.length; i++){
+            if (this.whosTurn === 'player1' && !this.board[id]){
+                this.board[id] = this.players[i].token 
+            } // place token
+        }
+    }
+
+    // Checking for the win conditions
+
     checkHorizontalWin(){
         if(this.board.one === this.board.two && this.board.two === this.board.three){
             return this.board.one
@@ -31,6 +43,7 @@ class Game {
             return ""
         }
     }
+
 
     checkVerticalWin() {
         if(this.board.one === this.board.four && this.board.four === this.board.seven){
@@ -54,24 +67,28 @@ class Game {
         }
     }
 
+
     checkForWin(){
-        var winningToken = this.checkHorizontalWin()
+        var winningToken = this.checkHorizontalWin();
+
         if(!winningToken){
-            winningToken = this.checkVerticalWin
+            winningToken = this.checkVerticalWin();
+
         } else if(!winningToken){
-            winningToken = this.checkDiagnolWin
+            winningToken = this.checkDiagnolWin();
         }
-        for(var i = 0; i < this.players; i++){
+
+        for(var i = 0; i < this.players.length; i++){
             if(winningToken === this.players[i].token){
                 this.players[i].wins += 1
-                this.gameOver = true
+                this.gameIsOver = true
             }
         }
     }
 
     gameOver() {
         if(this.turnCount > 8) {
-            this.gameOver = true;
+            this.gameIsOver = true;
             this.isDraw = true;
         }
     }
@@ -91,7 +108,6 @@ class Game {
             this.firstPlayer = 'player1'
         }
     }
-
 
     checkVictory() {
         console.log('checkVictory')
