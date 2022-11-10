@@ -3,6 +3,7 @@ class Player {
             this.name = playerName;
             this.token = playerToken;
             this.wins = 0;
+            
         }
 
         increaseWins(){

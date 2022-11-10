@@ -13,15 +13,18 @@ var allSquares = document.querySelectorAll('.square')
 // var square8 = document.querySelector('.sq8')
 // var square9 = document.querySelector('.sq9')
 
-var gameLayout = document.querySelector('game-grid')
+var gameLayout = document.querySelector('#game-grid')
 
-var ticTacToe = new Game()
 
-gameLayout.addEventListener('click', function(){
-    startGame()
-});
-›
+var playerOne = new Player("Brass", '🎺')
+var playerTwo = new Player("Strings", '🎻')
+var ticTacToe = new Game(playerOne, playerTwo)
+
+
+gameLayout.addEventListener('click', startGame);
+
 function startGame(){
+    placeToken()
     console.log("start game")
  
    
