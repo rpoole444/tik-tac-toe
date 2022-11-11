@@ -19,7 +19,29 @@ body {
 .right-player-side {
     height: 100vh;
     width: 45vw;
-    background-color: lightsalmon;
+    background-image: linear-gradient(
+  270deg,
+  hsl(193deg 93% 43%) 0%,
+  hsl(193deg 88% 45%) 7%,
+  hsl(193deg 84% 46%) 14%,
+  hsl(193deg 80% 48%) 20%,
+  hsl(193deg 77% 49%) 26%,
+  hsl(192deg 75% 50%) 31%,
+  hsl(192deg 76% 51%) 35%,
+  hsl(192deg 78% 53%) 39%,
+  hsl(192deg 79% 54%) 43%,
+  hsl(191deg 81% 55%) 46%,
+  hsl(191deg 82% 56%) 49%,
+  hsl(191deg 84% 57%) 52%,
+  hsl(191deg 86% 59%) 54%,
+  hsl(190deg 87% 60%) 57%,
+  hsl(190deg 89% 61%) 59%,
+  hsl(190deg 91% 62%) 62%,
+  hsl(189deg 93% 63%) 65%,
+  hsl(189deg 95% 64%) 69%,
+  hsl(189deg 98% 66%) 76%,
+  hsl(188deg 100% 67%) 99%
+);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -43,7 +65,7 @@ body {
 .game-wrapper {
     height: 100vh;
     width: 50vw;
-    background-color:lightseagreen;
+   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -59,21 +81,26 @@ body {
     padding: 0 0 25vh 0
 }
 
+/* .game-container,
+.game-layout, */
+.game-wrapper,
+.square {
+background-color:coral;
+}
+
 .game-container {
     height: 50vh;
     width: 50vw;
-    background-color: lightseagreen;
     display: flex;
     justify-content: center;
 }
 
 .game-layout{
-    background-color:lightseagreen;
     height: 60vh;
     width: 41vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
+    cursor:pointer;
     align-items: center;
     justify-items: center;
     justify-content: center;
@@ -81,13 +108,16 @@ body {
 }
 
 .square {
-    background-color: lightseagreen;
-    height: 19vh;
-    width: 14vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 4px solid red;
+    border: 4px solid black;
+}
+
+button,
+.square {
+    height:19vh;
+    width: 14vw;
 }
 
 .sq1 {
