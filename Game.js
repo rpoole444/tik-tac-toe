@@ -33,43 +33,35 @@ class Game {
     }
 
     tradeTurns(){
-
         // this.whosTurn = this.whosTurn === this.playerOne ? this.playerTwo : this.playerOne
-        // if(this.whosTurn === this.playerOne){
-        //     this.whosTurn = this.playerTwo
-        //     console.log('traded ', this.whosTurn)
-        // } else {
-        //     this.whosTurn = this.playerOne
-   
-            if(this.whosTurn === this.playerOne) {
+        
+        if(this.whosTurn === this.playerOne) {
             this.whosTurn = this.playerTwo
             return this.whosTurn
-            // console.log('Trade success')
-            } else {
-                this.whosTurn = this.playerOne
-                return this.whosTurn
-                // console.log('Trade success')
-            }
-    
+        } else {
+            this.whosTurn = this.playerOne
+            return this.whosTurn
+        }
     }
     // if (savedPosters[i].id === Number(event.target.parentNode.id))
     placeToken(id){ 
-        // var playerId = //id is going to be equal to the boards position
-       
             if (!this.board[id]){
                 this.board[id] = this.whosTurn.token 
-            }// place token
-        //id could be set to the event.target.getElement
+            }
     }
 
     // Checking for the win conditions
 
     checkHorizontalWin(){
-        if(this.board.one === this.board.two && this.board.two === this.board.three){
+        // console.log(this.board)
+        if(this.board.one === this.board.two && this.board.two === this.board.three && this.board.one !== ""){
+            console.log('horizontal 1', this.board.one)
             return this.board.one
-        } else if(this.board.four === this.board.five && this.board.five === this.board.six){
+        } else if(this.board.four === this.board.five && this.board.five === this.board.six && this.board.four !== ""){
+            console.log('horizontal 2', this.board.four)
             return this.board.four
-        } else if(this.board.seven === this.board.eight && this.board.eight === this.board.nine){
+        } else if(this.board.seven === this.board.eight && this.board.eight === this.board.nine && this.board.seven !== ""){
+            console.log('horizontal 3', this.board.seven)
             return this.board.seven
         } else {
             return ""
@@ -78,11 +70,14 @@ class Game {
 
 
     checkVerticalWin() {
-        if(this.board.one === this.board.four && this.board.four === this.board.seven){
+        if(this.board.one === this.board.four && this.board.four === this.board.seven && this.board.one !== ""){
+            console.log('vertical 1', this.board.one)
             return this.board.one
-        } else if(this.board.two === this.board.five && this.board.five === this.board.eight){
+        } else if(this.board.two === this.board.five && this.board.five === this.board.eight && this.board.two !== ""){
+            console.log('vertical 2', this.board.two)
             return this.board.two
-        } else if(this.board.three === this.board.six && this.board.six === this.board.nine){
+        } else if(this.board.three === this.board.six && this.board.six === this.board.nine && this.board.three !== ""){
+            console.log('vertical 3', this.board.three)
             return this.board.three
         } else {
             return ""
@@ -90,38 +85,45 @@ class Game {
     }
 
     checkDiagnolWin() {
-        if(this.board.one === this.board.five && this.board.five === this.board.nine){
+        if(this.board.one === this.board.five && this.board.five === this.board.nine && this.board.one !== "" ){
+            console.log('diagnol 1', this.board.one)
             return this.board.one
-        } else if(this.board.three === this.board.five && this.board.five === this.board.seven){
+        } else if(this.board.three === this.board.five && this.board.five === this.board.seven && this.board.three !== ""){
+            console.log('diagnol 2', this.board.three)
             return this.board.three
         } else {
             return ""
         }
     }
 
-
     checkForVictory(){
-        var winningToken = this.checkHorizontalWin();
-            // console.log('Horizontal Win: ', winningToken)
-        if(!winningToken){//or winningToken === ""
-            winningToken = this.checkVerticalWin();
-            // console.log('Vertical Win: ', winningToken)
-        } else if(!winningToken){
-            winningToken = this.checkDiagnolWin();
-            // console.log('Diagnol Win: ', winningToken)
-        } else {
-            // !this.gameIsOver
-            // this.checkDraw()
-        }
+        var winningToken; 
+        // // console.log("horizontal win", winningToken)
+        // if(!winningToken){ //or winningToken === "" . NEEDS A RE WRITE TO CHECK ALL THREE EVERYTIME
+        //     winningToken = this.checkVerticalWin();
+        //     // console.log("vertical win", winningToken)
+        // } else if(!winningToken){
+        //     winningToken = this.checkDiagnolWin();
+        //     // console.log('Diagnol Win: ', winningToken)
+        // } else {
+        //     //this.checkDraw
+        // }
+    // console.log(this.checkDiagnolWin)
 
-        for(var i = 0; i < this.players.length; i++){
-            if(winningToken === this.players[i].token){
-                this.players[i].wins += 1
-                this.gameIsOver = true
-                //return an interpolated string with `${this.players[i].token} ${this.players[i].name} is winner!`
-                console.log('Winner!', winningToken)
-            }
-        }
+        var horizontalToken = this.checkHorizontalWin();
+        var verticalToken = this.checkVerticalWin();
+        var diagnolToken = this.checkDiagnolWin(); //
+        console.log({horizontalToken, verticalToken, diagnolToken})
+        if(winningToken === this.whosTurn.token){
+            this.whosTurn.wins += 1
+            this.gameIsOver = true
+            console.log('Player 1 Wins', this.playerOne.wins)
+            console.log('player 2 Wins', this.playerTwo.wins)
+            //return an interpolated string with `${this.players[i].token} ${this.players[i].name} is winner!`
+            // console.log('Winner!', winningToken)
+        } 
+            // console.log('Player 2 Wins', this.playerTwo.wins)
+
     }
 
     gameOver() {
@@ -131,14 +133,12 @@ class Game {
         }
     }
 
-    checkVictory() {
-        console.log('checkVictory')
-    }
-
     checkDraw() {
-        if (this.turnCount === 9 && !this.gameIsOver)
+        if (this.turnCount === 9){
+            this.gameIsOver = true
             this.isDraw = true
         return "It's a draw"
+        }
     }
 
     resetBoard(){
