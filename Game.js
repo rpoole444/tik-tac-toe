@@ -23,8 +23,8 @@ class Game {
     }
 
     checkPlayerTurn(){
-            this.turnCount += 1
             this.tradeTurns();
+            console.log('turnCount', this.turnCount)
     }
 
     tradeTurns(){
@@ -42,6 +42,7 @@ class Game {
             if (!this.board[id]){
                 this.board[id] = this.whosTurn.token 
             }
+            this.turnCount ++ 
     }
 
     // Checking for the win conditions------------------------------------------------
@@ -105,7 +106,7 @@ class Game {
         // console.log({horizontalToken, verticalToken, diagnolToken})
         if(winningToken === this.whosTurn.token){
             this.whosTurn.increaseWins()
-            
+            this.turnCount = 0
             this.gameIsOver = true
             console.log('Player 1 Wins', this.playerOne.wins)
             console.log('player 2 Wins', this.playerTwo.wins)
@@ -118,8 +119,7 @@ class Game {
         if(this.turnCount > 8) {
             this.gameIsOver = true;
             this.isDraw = true;
-        }
-            this.turnCount = 0;
+        };
             this.resetBoard()
     }
 
@@ -129,8 +129,7 @@ class Game {
             this.gameIsOver = true;
             this.isDraw = true;
         return "It's a draw"
-        }
-        this.turnCount = 0;
+        };
         this.resetBoard();
     }
 

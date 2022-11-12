@@ -30,8 +30,8 @@ var id = square.id
 ticTacToe.placeToken(id)
 ticTacToe.checkDraw()
 ticTacToe.checkForVictory()
-ticTacToe.checkPlayerTurn()
 ticTacToe.gameOver();
+ticTacToe.checkPlayerTurn()
 updatePlayerWins(playerOne, playerTwo)
 updatePlayerTurn()
 console.log('after', ticTacToe.board)
