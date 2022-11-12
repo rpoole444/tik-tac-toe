@@ -21,20 +21,27 @@ var playerTwo = new Player("Strings", '🎻')
 var ticTacToe = new Game(playerOne, playerTwo)
 
 
+
 gameLayout.addEventListener('click', startGame);
 
 function startGame(event){
-    // console.log("checkForWin function", ticTacToe.checkForVictory())
-    // console.log('starting turnstate: ', ticTacToe.whosTurn)
-    // console.log("TradeTurns(), then whosTurn(deeplyEqual): ", ticTacToe.tradeTurns())
-    // console.log(document.event.target.getElementById('#square')
-   console.log("board Before ", ticTacToe.board)
 var square = event.target
 var id = square.id 
 ticTacToe.placeToken(id)
-ticTacToe.tradeTurns()
+ticTacToe.checkDraw()
+ticTacToe.checkForVictory()
+ticTacToe.checkPlayerTurn()
+ticTacToe.gameOver();
+updatePlayerWins(playerOne, playerTwo)
+updatePlayerTurn()
 console.log('after', ticTacToe.board)
 }
 
-// updateGameboard() {
-// }
+function updatePlayerWins(playerOne, playerTwo) {
+        outcomePlayer1.innerText = `${playerOne.wins} wins`;
+        outcomePlayer2.innerText = `${playerTwo.wins} wins`;
+}
+
+function updatePlayerTurn() {
+    turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`
+}

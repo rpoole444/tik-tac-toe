@@ -8,7 +8,8 @@ class Player {
         }
 
         increaseWins(){
-          console.log('increment wins')
+          this.wins += 1
+          
         }
 }
 
