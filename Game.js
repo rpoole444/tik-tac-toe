@@ -41,6 +41,8 @@ class Game {
     placeToken(id){ 
             if (!this.board[id]){
                 this.board[id] = this.whosTurn.token 
+            } else{
+
             }
             this.turnCount ++ 
     }
@@ -105,9 +107,9 @@ class Game {
         }
         // console.log({horizontalToken, verticalToken, diagnolToken})
         if(winningToken === this.whosTurn.token){
-            this.whosTurn.increaseWins()
             this.turnCount = 0
             this.gameIsOver = true
+            this.whosTurn.increaseWins()
             console.log('Player 1 Wins', this.playerOne.wins)
             console.log('player 2 Wins', this.playerTwo.wins)
         } 
@@ -118,9 +120,7 @@ class Game {
     gameOver() {
         if(this.turnCount > 8) {
             this.gameIsOver = true;
-            
         };
-            this.resetBoard()
     }
 
     checkDraw() {
@@ -128,11 +128,9 @@ class Game {
             console.log("draw")
             this.isDraw = true;
             this.gameIsOver = true;
-            this.resetBoard();
             this.turnCount = 0
         return "It's a draw"
         };
-        
     }
 
     resetBoard(){
@@ -146,9 +144,8 @@ class Game {
             this.board.seven = "";
             this.board.eight = "";
             this.board.nine = "";
-         
+            this.gameIsOver = false;
+            this.isDraw = false;// console.log('resetoard')
         }    // then setfivboard squars to ""five
-        this.gameIsOver = false;
-        this.isDraw = false;// console.log('resetoard')
     }
 }

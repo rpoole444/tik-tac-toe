@@ -114,8 +114,12 @@ background-color:coral;
     border: 4px solid black;
 }
 
+button {
+    font-size: 500%;
+}
 button,
 .square {
+   
     height:19vh;
     width: 14vw;
 }
