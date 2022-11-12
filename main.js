@@ -22,9 +22,9 @@ var ticTacToe = new Game(playerOne, playerTwo)
 
 
 
-gameLayout.addEventListener('click', startGame);
+gameLayout.addEventListener('click', playGame);
 
-function startGame(event){
+function playGame(event){
     var square = event.target
     var id = square.id 
         
@@ -32,13 +32,14 @@ function startGame(event){
         showPlayersMove(event);
         ticTacToe.checkDraw();
         ticTacToe.checkForVictory();
+        updateTitleStatus();
+        // viewWinner()
         ticTacToe.checkPlayerTurn();
         ticTacToe.gameOver();
         updatePlayerWins(playerOne, playerTwo);
-        updatePlayerTurn();
-        viewWinner();
+        // updateTitleStatus();
         ticTacToe.resetBoard();
-        clearField();
+        clearField()
         
 
         console.log('after', ticTacToe.board)
@@ -50,16 +51,21 @@ function updatePlayerWins(playerOne, playerTwo) {
 }
 
 
-function updatePlayerTurn() {
-    turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`
-    
+function updateTitleStatus() {
+    if(ticTacToe.gameIsOver === false && ticTacToe.turnCount !== 0){
+        turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`
+    } else if(ticTacToe.gameIsOver && ticTacToe.isDraw) {
+        turnTitle.innerText = "It's a Draw!!"
+    } else{
+        turnTitle.innerText = `${ticTacToe.whosTurn.token} is the Winner!!`
+    }
 }
 
 function viewWinner() { // need to work on this one!
     console.log("game is over ", ticTacToe.gameIsOver)
-    if(!ticTacToe.gameIsOver && ticTacToe.turnCount === 0 ){
-        turnTitle.innerText = `${ticTacToe.whosTurn.token} is the Winner!!`
-    }
+    // if(ticTacToe.gameIsOver && ticTacToe.turnCount === 0 ){
+        turnTitle.innerText = `${ticTacToe.whosTurn.token} is the winner!!`
+    // }
 }
 
 function showPlayersMove(event) {
@@ -69,19 +75,20 @@ function showPlayersMove(event) {
 }
 
 function clearField() {
-    console.log('clearField ')
     if(!ticTacToe.gameIsOver && ticTacToe.turnCount === 0){
-        square1.innerText = "";
-        square2.innerText = "";
-        square3.innerText = "";
-        square4.innerText = "";
-        square5.innerText = "";
-        square6.innerText = "";
-        square7.innerText = "";
-        square8.innerText = "";
-        square9.innerText = "";
+        setTimeout(clearField, 2*2000,
+        square1.innerText = "",
+        square2.innerText = "",
+        square3.innerText = "",
+        square4.innerText = "",
+        square5.innerText = "",
+        square6.innerText = "",
+        square7.innerText = "",
+        square8.innerText = "",
+        square9.innerText = "",
+        ); 
     }
-    ticTacToe.gameisOver = false;
+    ticTacToe.gameIsOver = false;
     ticTacToe.isDraw = false;
 }
 

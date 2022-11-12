@@ -14,17 +14,14 @@ class Game {
         }
         this.playerOne = player1
         this.playerTwo = player2
-        // this.players = [player1, player2];
-        this.whosTurn = player1
-        // this.firstTurn = "player1"//why are these strings?
-        this.turnCount = 0 //the game can only go to 8
+        this.whosTurn = player1 || player2
+        this.turnCount = 0 
         this.gameIsOver = false;
         this.isDraw = false;
     }
 
     checkPlayerTurn(){
             this.tradeTurns();
-            console.log('turnCount', this.turnCount)
     }
 
     tradeTurns(){
@@ -45,6 +42,7 @@ class Game {
 
             }
             this.turnCount ++ 
+            console.log('turnCount', this.turnCount)
     }
 
     // Checking for the win conditions------------------------------------------------
