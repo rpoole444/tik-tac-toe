@@ -43,5 +43,6 @@ function updatePlayerWins(playerOne, playerTwo) {
 }
 
 function updatePlayerTurn() {
+    if(ticTacToe.whosTurn.wins)
     turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`
 }

@@ -118,7 +118,7 @@ class Game {
     gameOver() {
         if(this.turnCount > 8) {
             this.gameIsOver = true;
-            this.isDraw = true;
+            
         };
             this.resetBoard()
     }
@@ -126,11 +126,13 @@ class Game {
     checkDraw() {
         if (this.turnCount === 9){
             console.log("draw")
-            this.gameIsOver = true;
             this.isDraw = true;
+            this.gameIsOver = true;
+            this.resetBoard();
+            this.turnCount = 0
         return "It's a draw"
         };
-        this.resetBoard();
+        
     }
 
     resetBoard(){
