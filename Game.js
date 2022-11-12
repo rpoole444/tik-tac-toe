@@ -14,16 +14,13 @@ class Game {
         }
         this.playerOne = player1
         this.playerTwo = player2
-        // this.players = [player1, player2];
-        this.whosTurn = player1
-        // this.firstTurn = "player1"//why are these strings?
-        this.turnCount = 0 //the game can only go to 8
+        this.whosTurn = player1 || player2
+        this.turnCount = 0 
         this.gameIsOver = false;
         this.isDraw = false;
     }
 
     checkPlayerTurn(){
-            this.turnCount += 1
             this.tradeTurns();
     }
 
@@ -41,7 +38,11 @@ class Game {
     placeToken(id){ 
             if (!this.board[id]){
                 this.board[id] = this.whosTurn.token 
+            } else{
+
             }
+            this.turnCount ++ 
+            console.log('turnCount', this.turnCount)
     }
 
     // Checking for the win conditions------------------------------------------------
@@ -104,9 +105,9 @@ class Game {
         }
         // console.log({horizontalToken, verticalToken, diagnolToken})
         if(winningToken === this.whosTurn.token){
-            this.whosTurn.increaseWins()
-            
+            this.turnCount = 0
             this.gameIsOver = true
+            this.whosTurn.increaseWins()
             console.log('Player 1 Wins', this.playerOne.wins)
             console.log('player 2 Wins', this.playerTwo.wins)
         } 
@@ -117,21 +118,17 @@ class Game {
     gameOver() {
         if(this.turnCount > 8) {
             this.gameIsOver = true;
-            this.isDraw = true;
-        }
-            this.turnCount = 0;
-            this.resetBoard()
+        };
     }
 
     checkDraw() {
         if (this.turnCount === 9){
             console.log("draw")
-            this.gameIsOver = true;
             this.isDraw = true;
+            this.gameIsOver = true;
+            this.turnCount = 0
         return "It's a draw"
-        }
-        this.turnCount = 0;
-        this.resetBoard();
+        };
     }
 
     resetBoard(){
@@ -145,9 +142,8 @@ class Game {
             this.board.seven = "";
             this.board.eight = "";
             this.board.nine = "";
-         
+            this.gameIsOver = false;
+            this.isDraw = false;// console.log('resetoard')
         }    // then setfivboard squars to ""five
-        this.gameIsOver = false;
-        this.isDraw = false;// console.log('resetoard')
     }
 }
