@@ -27,12 +27,21 @@ gameLayout.addEventListener('click', startGame);
 function startGame(event){
 var square = event.target
 var id = square.id 
-
 ticTacToe.placeToken(id)
+ticTacToe.checkDraw()
 ticTacToe.checkForVictory()
-ticTacToe.tradeTurns()
+ticTacToe.checkPlayerTurn()
+ticTacToe.gameOver();
+updatePlayerWins(playerOne, playerTwo)
+updatePlayerTurn()
 console.log('after', ticTacToe.board)
 }
 
-// updateGameboard() {
-// }
+function updatePlayerWins(playerOne, playerTwo) {
+        outcomePlayer1.innerText = `${playerOne.wins} wins`;
+        outcomePlayer2.innerText = `${playerTwo.wins} wins`;
+}
+
+function updatePlayerTurn() {
+    turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`
+}
