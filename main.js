@@ -22,6 +22,7 @@ var ticTacToe = new Game(playerOne, playerTwo);
 
 // ----------------------------------EventListeners---------------------------------
 
+// gameLayout.addEventListener('load', showCurrentPlayer)
 gameLayout.addEventListener('click', playGame);
 
 //-----------------------------------Functions------------------------------------
@@ -29,18 +30,18 @@ gameLayout.addEventListener('click', playGame);
 function playGame(event){
     var square = event.target;
     var id = square.id ;
-        ticTacToe.placeToken(id);
+    ticTacToe.placeToken(id);
         showPlayersMove(event);
         disableIcon(event)
         ticTacToe.checkDraw();
         ticTacToe.checkForVictory();
         showTitleStatus();
-        ticTacToe.checkPlayerTurn();
-        ticTacToe.gameOver();
         updatePlayerWins(playerOne, playerTwo);
+        // ticTacToe.setGameLimit()
         ticTacToe.resetBoard();
         clearField();
         enableIcon()
+        ticTacToe.checkPlayerTurn();
         
         console.log('after', ticTacToe.board);
 }
@@ -51,14 +52,21 @@ function updatePlayerWins(playerOne, playerTwo) {
 }
 
 function showTitleStatus() {
+   
     if(ticTacToe.gameIsOver === false && ticTacToe.turnCount !== 0){
         turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
     } else if(ticTacToe.gameIsOver && ticTacToe.isDraw) {
         turnTitle.innerText = "It's a Draw!!";
+        // console.log('title change to DRAW', ticTacToe)
     } else{
         turnTitle.innerText = `${ticTacToe.whosTurn.token} is the Winner!!`;
+        // console.log('title change to WIN', ticTacToe)
     }
 }
+
+// function showCurrentPlayer() {
+//     turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
+// }
 
 function showPlayersMove(event) {
     var square = event.target;
@@ -67,20 +75,22 @@ function showPlayersMove(event) {
 
 function clearField() {
     if(!ticTacToe.gameIsOver && ticTacToe.turnCount === 0){
-        setTimeout(clearField, 2*2000,
-        square1.innerText = "",
-        square2.innerText = "",
-        square3.innerText = "",
-        square4.innerText = "",
-        square5.innerText = "",
-        square6.innerText = "",
-        square7.innerText = "",
-        square8.innerText = "",
-        square9.innerText = "",
-        ); 
+        square1.innerText = "";
+        square2.innerText = "";
+        square3.innerText = "";
+        square4.innerText = "";
+        square5.innerText = "";
+        square6.innerText = "";
+        square7.innerText = "";
+        square8.innerText = "";
+        square9.innerText = "";
     }
     ticTacToe.gameIsOver = false;
     ticTacToe.isDraw = false;
+}
+
+function delayedReset() {
+    setTimeout(clearField, 2000)
 }
 
 function disableIcon(event) {
