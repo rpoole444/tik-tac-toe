@@ -3,6 +3,7 @@ class Player {
             this.name = playerName;
             this.token = playerToken;
             this.wins = 0;
+            this.isWinner = 0
             
             
         }
@@ -11,5 +12,7 @@ class Player {
           this.wins += 1
           
         }
+
+        
 }
 
