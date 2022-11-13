@@ -22,7 +22,7 @@ var ticTacToe = new Game(playerOne, playerTwo);
 
 // ----------------------------------EventListeners---------------------------------
 
-// gameLayout.addEventListener('load', showCurrentPlayer)
+gameLayout.addEventListener('load', showCurrentPlayer())
 gameLayout.addEventListener('click', playGame);
 
 //-----------------------------------Functions------------------------------------
@@ -30,20 +30,24 @@ gameLayout.addEventListener('click', playGame);
 function playGame(event){
     var square = event.target;
     var id = square.id ;
-    ticTacToe.placeToken(id);
+        ticTacToe.placeToken(id);
+        ticTacToe.checkForVictory();
+        ticTacToe.checkDraw();
+        showTitleStatus();
         showPlayersMove(event);
         disableIcon(event)
-        ticTacToe.checkDraw();
-        ticTacToe.checkForVictory();
-        showTitleStatus();
+        ticTacToe.checkPlayerTurn();// something is messing up my turn icon here!
         updatePlayerWins(playerOne, playerTwo);
         // ticTacToe.setGameLimit()
-        ticTacToe.resetBoard();
-        clearField();
-        enableIcon()
-        ticTacToe.checkPlayerTurn();
+        newBoard()
         
         console.log('after', ticTacToe.board);
+}
+
+function newBoard(){
+    ticTacToe.resetBoard();
+    clearField();
+    enableIcon()
 }
 
 function updatePlayerWins(playerOne, playerTwo) {
@@ -52,21 +56,22 @@ function updatePlayerWins(playerOne, playerTwo) {
 }
 
 function showTitleStatus() {
-   
-    if(ticTacToe.gameIsOver === false && ticTacToe.turnCount !== 0){
+    // if(ticTacToe.gameIsOver && ticTacToe.turnCount === 0 && !ticTacToe.isDraw){
+    //     turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
+   if(!ticTacToe.gameIsOver && !ticTacToe.isDraw){
         turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
     } else if(ticTacToe.gameIsOver && ticTacToe.isDraw) {
         turnTitle.innerText = "It's a Draw!!";
         // console.log('title change to DRAW', ticTacToe)
-    } else{
+    } else if(ticTacToe.gameIsOver && !ticTacToe.isDraw){
         turnTitle.innerText = `${ticTacToe.whosTurn.token} is the Winner!!`;
         // console.log('title change to WIN', ticTacToe)
     }
 }
 
-// function showCurrentPlayer() {
-//     turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
-// }
+function showCurrentPlayer() {
+    turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
+}
 
 function showPlayersMove(event) {
     var square = event.target;

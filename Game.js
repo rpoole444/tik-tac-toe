@@ -22,12 +22,12 @@ class Game {
     }
 
     checkPlayerTurn(){
-        if(!this.placeToken){
-            this.whosTurn = this.playerOne
-            return this.playerOne
-        } else {
+        // if(!this.placeToken){
+        //     this.whosTurn = this.playerOne
+        //     return this.playerOne
+        // } else {
             this.tradeTurns();
-        }
+        // }
     }
 
     tradeTurns(){
