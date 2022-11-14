@@ -1,4 +1,4 @@
-// ---------------------------------querySelectors---------------------------------
+// ---------------------------------querySelectors---------------------
 var outcomePlayer1 = document.querySelector(".left-outcome");
 var outcomePlayer2 = document.querySelector(".right-outcome");
 var turnTitle = document.querySelector(".middle-header");
@@ -19,12 +19,12 @@ var playerOne = new Player("Brass", "🎺");
 var playerTwo = new Player("Strings", "🎻");
 var ticTacToe = new Game(playerOne, playerTwo);
 
-// ----------------------------------EventListeners---------------------------------
+// ----------------------------------EventListeners--------------------
 
 gameLayout.addEventListener("load", showCurrentPlayer());
 gameLayout.addEventListener("click", playGame);
 
-//-----------------------------------Functions------------------------------------
+//-----------------------------------Functions------------------------
 
 function playGame(event) {
   if (!ticTacToe.gameIsOver) {
@@ -35,12 +35,11 @@ function playGame(event) {
     ticTacToe.checkDraw();
     showPlayersMove(event);
     disableIcon(event);
-    ticTacToe.tradeTurns(); // something is messing up my turn icon here!
+    ticTacToe.tradeTurns();
     showTitleStatus();
     updatePlayerWins(playerOne, playerTwo);
     if (ticTacToe.gameIsOver || ticTacToe.isDraw) {
       setTimeout(newBoard, 3000);
-      // ticTacToe.setGameLimit()
     }
     console.log(ticTacToe.winningPlayer);
   }

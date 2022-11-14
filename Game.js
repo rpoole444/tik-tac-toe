@@ -189,11 +189,3 @@ class Game {
     this.winningPlayer = null;
   }
 }
-
-//     setGameLimit(){
-//         if(this.whosTurn.wins === 5){
-//             this.resetBoard()
-
-//         }
-//     }
-// }
