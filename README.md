@@ -1,7 +1,7 @@
 # Tic-tac-toe 
 
 ### Description:
-Need a new desktop game to play with your friends and family? Feeling like having some fun? Look no further, the music themed - Tic-tac-toe app allows users to play head-to-head in a classic tic tak toe game directly from your computer! Join the fun and enjoy the developer's original recording as you play against your friends!!
+Need a new desktop game to play with your friends and family? Feeling like having some fun? Look no further, the music themed, Tic-tac-toe app allows users to play head-to-head in a classic tic tak toe game directly from your computer! Join the fun and enjoy the developer's original recording as you play against your friends!!
 
 
 ### Installation Instructions:
