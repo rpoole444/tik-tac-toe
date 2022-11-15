@@ -23,10 +23,11 @@ gameLayout.addEventListener("click", playGame);
 function playGame(event) {
   checkForGameOver();
   var square = event.target;
-  var id = square.id;
+  var id = square.id; // new function w/conditional
   ticTacToe.placeToken(id);
   ticTacToe.checkForVictory();
-  ticTacToe.checkDraw(); // if the game is over don't trade turns
+  ticTacToe.checkDraw();
+  disableGridOnWin();
   showPlayersMove(event);
   disableIcon(event);
   checkForTradeConditions();
@@ -48,6 +49,20 @@ function checkForGameOver() {
 function showPlayersMove(event) {
   var square = event.target;
   square.innerText = ticTacToe.whosTurn.token;
+}
+
+function disableGridOnWin() {
+  if (ticTacToe.gameIsOver) {
+    square1.disabled = true;
+    square2.disabled = true;
+    square3.disabled = true;
+    square4.disabled = true;
+    square5.disabled = true;
+    square6.disabled = true;
+    square7.disabled = true;
+    square8.disabled = true;
+    square9.disabled = true;
+  }
 }
 
 function disableIcon(event) {
@@ -80,7 +95,7 @@ function updatePlayerWins(playerOne, playerTwo) {
 
 function checkForBoardReset() {
   if (ticTacToe.gameIsOver || ticTacToe.isDraw) {
-    setTimeout(newBoard, 3000);
+    setTimeout(newBoard, 2000);
   }
 }
 
