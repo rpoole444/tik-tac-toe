@@ -34,6 +34,6 @@ Solidify and demonstrate your understanding of:
   - Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challengeshoot, and plan effectively as a team
 
 ### Wins + Challenges:
-We overcame some great challenges during this exercise. We were satisfied with our final use innerHTML, interpolation, and bug fixes. Additionally we enjoyed creating our utility functions.
+This Project was super fun, but a big challenge! I Had a couple very challenging bugs that took a very long time to fix, dealing with the title on the DOM, but after a ton time and thought I was able to overcome and create sound logic!.
 
 
