@@ -37,6 +37,6 @@ Solidify and demonstrate your understanding of:
   - Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challengeshoot, and plan effectively.
 
 ### Wins + Challenges:
-This Project was super fun, but a big challenge! I had a couple very challenging bugs that took a very long time to fix, dealing with the turn/win/draw title on the DOM, but after a ton time, thought, and console.logs I was able to overcome and create sound and stable logic for this ageless game.
+This Project was super fun, but a big challenge! I had a couple very challenging bugs that took a very long time to fix, dealing with the turn/win/draw title on the DOM, but after a ton of time, thought, and console.logs I was able to overcome and create sound and stable logic for this ageless game.
 
 
