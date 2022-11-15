@@ -1,6 +1,6 @@
-var outcomePlayer1 = document.querySelector(".left-outcome");
-var outcomePlayer2 = document.querySelector(".right-outcome");
-var turnTitle = document.querySelector(".middle-header");
+var outcomePlayer1 = document.querySelector("#p1Wins");
+var outcomePlayer2 = document.querySelector("#p2Wins");
+var turnTitle = document.querySelector("#middleHeader");
 
 var gameLayout = document.querySelector("#game-grid");
 var square1 = document.querySelector("#one");
