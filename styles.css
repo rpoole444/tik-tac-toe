@@ -65,7 +65,7 @@ body {
 .game-wrapper {
   height: 100vh;
   width: 50vw;
-
+  background-color: coral;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -77,34 +77,11 @@ body {
   font-size: 8vh;
   padding: 4vh 0 0 0;
 }
-.game-container {
-  padding: 0 0 25vh 0;
-}
-
-/* .game-container,
-.game-layout, */
-.game-wrapper,
-.square {
-  background-color: coral;
-}
-
-.square {
-  background-image: linear-gradient(
-    45deg,
-    hsl(198deg 70% 69%) 0%,
-    hsl(198deg 70% 69%) 14%,
-    hsl(198deg 70% 69%) 27%,
-    hsl(198deg 70% 69%) 40%,
-    hsl(198deg 70% 69%) 54%,
-    hsl(198deg 70% 69%) 68%,
-    hsl(198deg 70% 69%) 83%,
-    hsl(198deg 70% 69%) 100%
-  );
-}
 
 .game-container {
   height: 50vh;
   width: 50vw;
+  padding: 0 0 25vh 0;
   display: flex;
   justify-content: center;
 }
@@ -126,14 +103,22 @@ body {
   justify-content: center;
   align-items: center;
   border: 4px solid black;
-}
-
-button {
-  font-size: 500%;
+  background-image: linear-gradient(
+    45deg,
+    hsl(198deg 70% 69%) 0%,
+    hsl(198deg 70% 69%) 14%,
+    hsl(198deg 70% 69%) 27%,
+    hsl(198deg 70% 69%) 40%,
+    hsl(198deg 70% 69%) 54%,
+    hsl(198deg 70% 69%) 68%,
+    hsl(198deg 70% 69%) 83%,
+    hsl(198deg 70% 69%) 100%
+  );
 }
 
 button,
 .square {
   height: 19vh;
   width: 14vw;
+  font-size: 500%;
 }
