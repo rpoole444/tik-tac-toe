@@ -22,7 +22,7 @@ gameLayout.addEventListener("click", playGame);
 
 function playGame(event) {
   checkForGameOver();
-  var square = event.target;
+  var square = event.target.closest(".square");
   var id = square.id;
   ticTacToe.placeToken(id);
   ticTacToe.checkForVictory();
