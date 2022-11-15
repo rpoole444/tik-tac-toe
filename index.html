@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-  <link rel="stylesheet" href="styles.css">
-  <title>Tic Tac Toe!!</title>
-</head>
-    <body>
-        <div class="wrapper">
-        <section class="left-player-side">
-            <h3 class="left-title">Player 1 🎺</h3>
-            <p class="left-outcome" id="p1Wins">0 wins</p>
-        </section>
-        <main>
-            <div class="game-wrapper">
-                <h2 class="middle-header" id=""></h2>
-                <section class="game-container">
-                    <div class="game-layout" id="game-grid">
-                        <button type="button" class="square" id="one"></button>
-                        <button type="button" class="square" id="two"></button>
-                        <button type="button" class="square" id="three"></button>
-                        <button type="button" class="square" id="four"></button>
-                        <button type="button" class="square" id="five"></button>
-                        <button type="button" class="square" id="six"></button>
-                        <button type="button" class="square" id="seven"></button>
-                        <button type="button" class="square" id="eight"></button>
-                        <button type="button" class="square" id="nine"></button>
-                    </div>
-                </section>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Tic Tac Toe!!</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="left-player-side">
+        <h3 class="left-title">Player 1 🎺</h3>
+        <p class="left-outcome" id="p1Wins">0 wins</p>
+        <audio controls>
+          <source src="audio/Feels So Good.mp3" type="audio/mpeg" />
+        </audio>
+      </section>
+      <main>
+        <div class="game-wrapper">
+          <h2 class="middle-header" id=""></h2>
+          <section class="game-container">
+            <div class="game-layout" id="game-grid">
+              <button type="button" class="square" id="one"></button>
+              <button type="button" class="square" id="two"></button>
+              <button type="button" class="square" id="three"></button>
+              <button type="button" class="square" id="four"></button>
+              <button type="button" class="square" id="five"></button>
+              <button type="button" class="square" id="six"></button>
+              <button type="button" class="square" id="seven"></button>
+              <button type="button" class="square" id="eight"></button>
+              <button type="button" class="square" id="nine"></button>
             </div>
-        </main>
-        <section class="right-player-side">
-            <h3 class="right-title">Player 2 🎻</h3>
-            <p class="right-outcome" id="p2Wins">0 Wins</p>
-        </section>
+          </section>
         </div>
-        <script src="player.js"></script>
-        <script src="game.js"></script>
-        <script src="main.js"></script>
-    </body>
+      </main>
+      <section class="right-player-side">
+        <h3 class="right-title">Player 2 🎻</h3>
+        <p class="right-outcome" id="p2Wins">0 Wins</p>
+      </section>
+    </div>
+    <script src="player.js"></script>
+    <script src="game.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

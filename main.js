@@ -1,8 +1,8 @@
-// ---------------------------------querySelectors---------------------
 var outcomePlayer1 = document.querySelector(".left-outcome");
 var outcomePlayer2 = document.querySelector(".right-outcome");
 var turnTitle = document.querySelector(".middle-header");
-var allSquares = document.querySelectorAll("button");
+
+var gameLayout = document.querySelector("#game-grid");
 var square1 = document.querySelector("#one");
 var square2 = document.querySelector("#two");
 var square3 = document.querySelector("#three");
@@ -13,44 +13,64 @@ var square7 = document.querySelector("#seven");
 var square8 = document.querySelector("#eight");
 var square9 = document.querySelector("#nine");
 
-var gameLayout = document.querySelector("#game-grid");
-
 var playerOne = new Player("Brass", "🎺");
 var playerTwo = new Player("Strings", "🎻");
 var ticTacToe = new Game(playerOne, playerTwo);
 
-// ----------------------------------EventListeners--------------------
-
 gameLayout.addEventListener("load", showCurrentPlayer());
 gameLayout.addEventListener("click", playGame);
 
-//-----------------------------------Functions------------------------
-
 function playGame(event) {
-  if (!ticTacToe.gameIsOver) {
-    var square = event.target;
-    var id = square.id;
-    ticTacToe.placeToken(id);
-    ticTacToe.checkForVictory();
-    ticTacToe.checkDraw();
-    showPlayersMove(event);
-    disableIcon(event);
-    ticTacToe.tradeTurns();
-    showTitleStatus();
-    updatePlayerWins(playerOne, playerTwo);
-    if (ticTacToe.gameIsOver || ticTacToe.isDraw) {
-      setTimeout(newBoard, 3000);
-    }
-    console.log(ticTacToe.winningPlayer);
-  }
-  console.log("after", ticTacToe.board);
+  checkForGameOver();
+  var square = event.target;
+  var id = square.id;
+  ticTacToe.placeToken(id);
+  ticTacToe.checkForVictory();
+  ticTacToe.checkDraw(); // if the game is over don't trade turns
+  showPlayersMove(event);
+  disableIcon(event);
+  checkForTradeConditions();
+  showTitleStatus();
+  updatePlayerWins(playerOne, playerTwo);
+  checkForBoardReset();
 }
 
-function newBoard() {
-  ticTacToe.resetBoard();
-  clearField();
-  enableIcon();
-  showTitleStatus();
+function showCurrentPlayer() {
+  turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
+}
+
+function checkForGameOver() {
+  if (ticTacToe.gameIsOver) {
+    return;
+  }
+}
+
+function showPlayersMove(event) {
+  var square = event.target;
+  square.innerText = ticTacToe.whosTurn.token;
+}
+
+function disableIcon(event) {
+  var square = event.target;
+  if (square.innerText || ticTacToe.gameIsOver) {
+    square.disabled = true;
+  }
+}
+
+function checkForTradeConditions() {
+  if (!ticTacToe.gameIsOver && !ticTacToe.isDraw) {
+    ticTacToe.tradeTurns();
+  }
+}
+
+function showTitleStatus() {
+  if (!ticTacToe.gameIsOver && !ticTacToe.isDraw) {
+    turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
+  } else if (ticTacToe.gameIsOver && ticTacToe.isDraw) {
+    turnTitle.innerText = "It's a Draw!!";
+  } else if (ticTacToe.gameIsOver && !ticTacToe.isDraw) {
+    turnTitle.innerText = `${ticTacToe.winningPlayer.token} is the Winner!!`;
+  }
 }
 
 function updatePlayerWins(playerOne, playerTwo) {
@@ -58,26 +78,17 @@ function updatePlayerWins(playerOne, playerTwo) {
   outcomePlayer2.innerText = `${playerTwo.wins} wins`;
 }
 
-function showTitleStatus() {
-  console.log("show title status");
-  if (!ticTacToe.gameIsOver && !ticTacToe.isDraw) {
-    turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
-  } else if (ticTacToe.gameIsOver && ticTacToe.isDraw) {
-    turnTitle.innerText = "It's a Draw!!";
-    console.log("title change to DRAW", ticTacToe);
-  } else if (ticTacToe.gameIsOver && !ticTacToe.isDraw) {
-    turnTitle.innerText = `${ticTacToe.winningPlayer.token} is the Winner!!`;
-    console.log("title change to WIN", ticTacToe);
+function checkForBoardReset() {
+  if (ticTacToe.gameIsOver || ticTacToe.isDraw) {
+    setTimeout(newBoard, 3000);
   }
 }
 
-function showCurrentPlayer() {
-  turnTitle.innerText = `It's ${ticTacToe.whosTurn.token} turn!`;
-}
-
-function showPlayersMove(event) {
-  var square = event.target;
-  square.innerText = ticTacToe.whosTurn.token;
+function newBoard() {
+  ticTacToe.resetBoard();
+  clearField();
+  enableIcon();
+  showTitleStatus();
 }
 
 function clearField() {
@@ -94,17 +105,6 @@ function clearField() {
   }
   ticTacToe.gameIsOver = false;
   ticTacToe.isDraw = false;
-}
-
-function delayedReset() {
-  setTimeout(clearField, 2000);
-}
-
-function disableIcon(event) {
-  var square = event.target;
-  if (square.innerText || ticTacToe.gameIsOver) {
-    square.disabled = true;
-  }
 }
 
 function enableIcon() {

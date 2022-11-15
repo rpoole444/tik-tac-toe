@@ -131,44 +131,9 @@ body {
 button {
   font-size: 500%;
 }
+
 button,
 .square {
   height: 19vh;
   width: 14vw;
-}
-
-.sq1 {
-  border-top: 0;
-  border-left: 0;
-}
-
-.sq2 {
-  border-top: 0;
-}
-
-.sq3 {
-  border-top: 0;
-  border-right: 0;
-}
-
-.sq4 {
-  border-left: 0;
-}
-
-.sq6 {
-  border-right: 0;
-}
-
-.sq7 {
-  border-left: 0;
-  border-bottom: 0;
-}
-
-.sq8 {
-  border-bottom: 0;
-}
-
-.sq9 {
-  border-right: 0;
-  border-bottom: 0;
 }
