@@ -1,7 +1,7 @@
 # Tic-tac-toe 
 
 ### Description:
-Need a new desktop game to play with your friends and family? Feeling like having some fun? Look no further, the music themed - Tic-tac-toe app allows users to play head to head in a classic tic tak toe game directly from your computer! Join the fun and enjoy the developer's original recording as you play against your friends!!
+Need a new desktop game to play with your friends and family? Feeling like having some fun? Look no further, the music themed - Tic-tac-toe app allows users to play head-to-head in a classic tic tak toe game directly from your computer! Join the fun and enjoy the developer's original recording as you play against your friends!!
 
 
 ### Installation Instructions:
@@ -19,7 +19,7 @@ Run the command open index.html
 [Preview Video](https://www.loom.com/share/977bc72708ff4ebfaa5e8bee860572fd)
 
 ### Context:
-This app is a apart of my final assessment in Mod 1. The project was assigned on a Tuesday and was due a full week later. I was able to complete it by Tuesday Morning! I worked to get my data model functioning properly before I moved to showing the data model on the DOM. This was a challenge but also a good strategy for building a strong foundation before manipulating the DOM!
+This app is a apart of my final assessment in Mod 1 at Turing School. The project was assigned on a Tuesday and was due a full week later. I was able to complete it by Tuesday Morning! I worked to get my data model functioning properly before I moved to showing the data model on the DOM. This was a challenge but also a good strategy for building a strong foundation before manipulating the DOM!
 
 ### Future Features:
 Given the opportunity to better this application, I would add local storage, a more creative background, a reset button to reset the wins, and multiple choices of music to choose from and listen to while you play against your friends.
